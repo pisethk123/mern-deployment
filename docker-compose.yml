@@ -1,0 +1,26 @@
+version: '1.0'
+# services
+services:
+  server:
+    build: ./server
+    ports:
+      - 8000:8000
+    restart: "unless-stopped"
+    environment:
+      - MONGODB_CONNECTION_STRING=mongodb+srv://pisethk123:pOLyXJx17oozt5XU@cluster0.6u2c263.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+      - CLIENT_URL=pisethk123.site,www.pisethk123.site
+      - PORT=8000
+  client:
+    build: ./client
+    ports:
+      - 80:80
+      - 443:443
+    restart: "unless-stopped"
+    depends_on:
+      - server
+    volumes:
+      - certbot-etc:/etc/letsencrypt
+      - webroot:/var/www/html
+volumes:
+  certbot-etc:
+  webroot:
