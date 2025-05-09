@@ -4,9 +4,10 @@ src
 .env
 .gitignore
 .dockerignore
-Docker
+Dockerfile
 eslint.config.js
-index.html
 package*.json
+index.html
 README.md
 vite.config.js
+nginx.conf
