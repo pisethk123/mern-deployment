@@ -16,7 +16,7 @@ server {
     ssl_certificate /etc/letsencrypt/live/pisethk123.site/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/pisethk123.site/privkey.pem;
 
-    root /var/www/html/dist;
+    root /var/www/html;
     index index.html;
 
     location / {
