@@ -1,9 +1,3 @@
-FROM ubuntu:latest
-ENV DEBIAN_FRONTEND=noninteractive
-RUN apt-get update 
-RUN apt-get install -y --no-install-recommends nginx certbot python3-certbot-nginx cron curl
-RUN rm -rf /var/lib/apt/lists/*
-COPY dist/ /var/www/html
-COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
-CMD ["/entrypoint.sh"] 
+FROM caddy:latest
+COPY Caddyfile /etc/caddy/Caddyfile
+COPY dist /usr/share/caddy/dist

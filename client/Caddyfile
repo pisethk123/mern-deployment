@@ -1,0 +1,13 @@
+{
+	email pisethk123@gmail.com
+}
+pisethk123.site, www.pisethk123.site {
+	root * /usr/share/caddy/dist
+	encode gzip
+	file_server
+	try_files {path} /index.html
+}
+
+api.pisethk123.site {
+	reverse_proxy /api/* express:8000
+}

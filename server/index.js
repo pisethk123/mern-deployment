@@ -13,8 +13,8 @@ const origin = process.env.CLIENT_URL.split(",")
 app.use(express.json())
 app.use(cors({origin}))
 
-app.get("/", (req, res) => {
-    res.send("this is server")
+app.get("/api", (req, res) => {
+    res.status(200).json({message: "api is connected"})
 })
 app.use("/api/product", productRoutes)
 

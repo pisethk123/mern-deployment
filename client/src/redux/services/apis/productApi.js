@@ -2,6 +2,9 @@ import { apiSlice } from "../apiSlice";
 
 const productApi = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
+        test: builder.query({
+            query: () => "/"
+        }),
         // add new product
         addProduct: builder.mutation({
             query: (newProduct) => ({
@@ -29,6 +32,7 @@ const productApi = apiSlice.injectEndpoints({
 })
 
 export const {
+    useTestQuery, 
     useAddProductMutation,
     useGetProductsQuery,
     useDeleteProductMutation

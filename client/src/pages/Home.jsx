@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
-import { useDeleteProductMutation, useGetProductsQuery } from "../redux/services/apis/productApi";
+import { useDeleteProductMutation, useGetProductsQuery, useTestQuery } from "../redux/services/apis/productApi";
 import { formatDate } from "../utils/formateDate";
 
 const Home = () => {
     const {data, isLoading, } = useGetProductsQuery()
     const [deleteProduct] = useDeleteProductMutation()
+    const {data: testData} = useTestQuery() 
 
     const deleteHandler = (productId) => {
         console.log(productId)
@@ -13,6 +14,7 @@ const Home = () => {
 
   return (
     <div>
+        {testData && testData.message}<br></br>
         <Link to={"/add_product"}>Add new product</Link>
         <h3>All products</h3>
         {isLoading && <p>Loading...</p>}    
